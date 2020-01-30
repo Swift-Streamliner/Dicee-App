@@ -13,19 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView2: UIImageView!
     
     let dices = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = dices[leftDiceNumber]
-        diceImageView2.image = dices[rightDiceNumber]
+        diceImageView1.image = dices.randomElement()
+        diceImageView2.image = dices[Int.random(in: 0...dices.count - 1)]
         
-        leftDiceNumber += 1
-        rightDiceNumber -= 1
     }
     
 
